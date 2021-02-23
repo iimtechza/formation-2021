@@ -34,7 +34,7 @@ class CompanyRegistration extends React.Component {
     const { active } = this.state;
 
     return (
-      images && (
+      (images && (
         <>
           <Wrapper>
             <Sidebar_Right self={this} context={this.context} />
@@ -74,7 +74,7 @@ class CompanyRegistration extends React.Component {
             </>
           </Wrapper>
         </>
-      ) || <><>
+      )) || <></>
     );
   }
 }
