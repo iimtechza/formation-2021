@@ -1,27 +1,33 @@
 import React from "react";
+import APP from "../Context/context.js";
+import Wrappers from "./index";
 
-import { Audio, Auth, Ui, Controls, Data, Socket } from "./";
-
-class __ extends React.Component {
+class MainWrapper extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    return (
-      <Auth>
-        <Data>
-          <Socket>
-            <Controls>
-              <Ui>
-                <Audio>{this.props.children}</Audio>
-              </Ui>
-            </Controls>
-          </Socket>
-        </Data>
-      </Auth>
-    );
+    console.log("Wrappers", Wrappers);
+
+    const { Audio, Auth, Ui, Controls, Data, Socket } = Wrappers;
+
+    console.log("MainWrapper children : ", this.props.children);
+
+    return this.props.children;
   }
 }
 
-export default __;
+export default MainWrapper;
+MainWrapper.contextType = APP;
+// <Auth>
+//   <Data>
+//     <Socket>
+//       <Controls>
+//         <Ui>
+//           <Audio>{this.props.children}</Audio>
+//         </Ui>
+//       </Controls>
+//     </Socket>
+//   </Data>
+// </Auth>;

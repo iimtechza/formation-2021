@@ -1,17 +1,19 @@
 import Data from "./data";
 import Auth from "./auth";
 import Controls from "./controls";
+import Socket from "./socket";
 import Ui from "./ui";
 import Audio from "./audio";
-import __ from "./_";
+import MainWrapper from "./_";
 
-const Wrappers = {
+export const Wrappers = {
   Auth,
   Data,
   Controls,
+  Socket,
   Ui,
-  Audio,
-  __
+  Audio
 };
 
+export default MainWrapper 
 export default Wrappers;

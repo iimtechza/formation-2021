@@ -1,0 +1,16 @@
+#Main.open {
+  height: 100vh;
+  transform: translate3d(-5vw, 0px, 0px);
+  position: relative;
+  display: block;
+}
+#Main {
+  height: 100vh;
+  transform: translate3d(0vw, 0px, 0px);
+  position: relative;
+  display: block;
+}
+
+.trans-a {
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}

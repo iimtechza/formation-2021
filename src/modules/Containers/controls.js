@@ -15,7 +15,8 @@ class Controls extends React.Component {
     return (
       <App.Provider
         value={{
-          state: this.state
+          state: this.state,
+          Controls: this
         }}
       >
         {this.props.children}

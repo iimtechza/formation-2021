@@ -6,6 +6,7 @@ import Companies from "./pages/companies.js";
 import New_Company from "./pages/new_company.js";
 
 import Wrappers from "./modules/Containers/";
+import MainWrapper from "./modules/Containers/";
 import app from "./modules/Context/context.js";
 import { Nav, Image } from "apeq-ui";
 
@@ -22,7 +23,8 @@ class CompanyRegistration extends React.Component {
 
     this.state = {
       active: 0,
-      slides: []
+      slides: [],
+      nudge: false
     };
   }
 
@@ -34,47 +36,48 @@ class CompanyRegistration extends React.Component {
     const { active } = this.state;
 
     return (
-      (images && (
-        <>
-          <Wrapper>
-            <Sidebar_Right self={this} context={this.context} />
+      <MainWrapper>
+        <section
+          id="Main"
+          className={this.state.nudge ? " open trans-a " : " closed trans-a "}
+        >
+          <Sidebar_Right images={images} self={this} context={this.context} />
 
-            <>
-              <section
-                id=""
-                className=" sans-serif w-50 relative db bg-near-white h-100 flex-"
-              >
-                <div className=" flex flex-column ph5 mw7 center ">
-                  <h1 className=" f6 ttu tracked fw7 green sans-serif pt5 pb0 ">
-                    Start
-                  </h1>
-                  <p className=" pt0 mt0 f6 fw5 black-40 sans-serif ">
-                    Register a new company or foundation.
-                  </p>
-                </div>
-                <div className=" flex flex-column ph5 left pt3 flex-auto mw5 w-100 pb5">
-                  <button
-                    onClick={() => {
-                      this.setState({
-                        active: active <= images.length ? active + 1 : 0
-                      });
-                    }}
-                    className="  f5 fw6 sans-serif pv2 flex left h-100 items-center justify-center bg-white green bn bw1 b--black-70 br2 ttc pointer dim shadow-1 hover-shadow-2 mr3 ph3    "
-                  >
-                    Next {active}
-                  </button>
-                </div>
-              </section>
+          <>
+            <section
+              id=""
+              className=" sans-serif w-50 relative db bg-near-white h-100 flex-"
+            >
+              <div className=" flex flex-column ph5 mw7 center ">
+                <h1 className=" f6 ttu tracked fw7 green sans-serif pt5 pb0 ">
+                  Start
+                </h1>
+                <p className=" pt0 mt0 f6 fw5 black-40 sans-serif ">
+                  Register a new company or foundation.
+                </p>
+              </div>
+              <div className=" flex flex-column ph5 left pt3 flex-auto mw5 w-100 pb5">
+                <button
+                  onClick={() => {
+                    this.setState({
+                      active: active <= images.length ? active + 1 : 0
+                    });
+                  }}
+                  className="  f5 fw6 sans-serif pv2 flex left h-100 items-center justify-center bg-white green bn bw1 b--black-70 br2 ttc pointer dim shadow-1 hover-shadow-2 mr3 ph3    "
+                >
+                  Next {active}
+                </button>
+              </div>
+            </section>
 
-              {this.state.active === 0 ? (
-                <New_Company self={this} context={this.context} />
-              ) : (
-                <Companies self={this} context={this.context} />
-              )}
-            </>
-          </Wrapper>
-        </>
-      )) || <></>
+            {this.state.active === 0 ? (
+              <New_Company self={this} context={this.context} />
+            ) : (
+              <Companies self={this} context={this.context} />
+            )}
+          </>
+        </section>
+      </MainWrapper>
     );
   }
 }
@@ -83,19 +86,29 @@ export default CompanyRegistration;
 
 CompanyRegistration.contextType = app;
 
-const Wrapper = props => props.children;
+console.log("MainWrapper ", MainWrapper);
+
+const Wrapper = props => <MainWrapper>{props.children}</MainWrapper>;
 
 const Sidebar_Right = props => (
-  <>
-    <div
-      className=" bg-center bg-cover h-100 w-50 fixed right z-999"
-      id="Sidebar-Right "
-      style={{
-        background:
-          'url("' + slide_state({ images, state: props.self.state }) + '")'
-      }}
-    />
-  </>
+  console.log("Sidebar_Right : props ==> ", props),
+  (
+    <>
+      <div
+        className=" bg-center bg-cover h-100 w-50 fixed right z-999"
+        id="Sidebar-Right "
+        style={{
+          background:
+            'url("' +
+            slide_state({
+              images: props.images,
+              state: props.self.state
+            }) +
+            '")'
+        }}
+      />
+    </>
+  )
 );
 
 const slide_state = ({ images, state }) => {

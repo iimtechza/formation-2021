@@ -1,4 +1,5 @@
 import React from "react";
+import APP from "../Context/context.js";
 
 class Data extends React.Component {
   constructor(props) {
@@ -12,14 +13,17 @@ class Data extends React.Component {
   }
 
   render() {
+    console.og("APP : ", APP);
+
     return (
-      <App.Provider
+      <APP.Provider
         value={{
-          state: this.state
+          state: this.state,
+          Data: this
         }}
       >
-        {this.props.children}
-      </App.Provider>
+        <>{this.props.children}</>
+      </APP.Provider>
     );
   }
 }

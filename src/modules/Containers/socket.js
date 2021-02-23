@@ -1,7 +1,6 @@
 import React from "react";
-import APP from "../Context/context.js";
 
-class Auth extends React.Component {
+class Socket extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,17 +13,16 @@ class Auth extends React.Component {
 
   render() {
     return (
-      <APP.Provider
+      <App.Provider
         value={{
           state: this.state,
-          Auth: this
+          Socket: this
         }}
       >
         {this.props.children}
-      </APP.Provider>
+      </App.Provider>
     );
   }
 }
 
-export default Auth;
-Auth.contextType = APP;
+export default Socket;

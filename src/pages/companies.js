@@ -1,6 +1,7 @@
 import React from "react";
 
 import { images, companies } from "../data";
+import data from "../data";
 
 import Image from "../modules/Ui/Image/image";
 // import Companies from './Companies.js'
@@ -14,10 +15,12 @@ class Companies extends React.Component {
   }
 
   render() {
-    console.log("Companies_ ", Companies_);
+    // console.log("Companies_ ", Companies_);
     // alert();
     const { context, self } = this.props;
-
+    console.log("Companies ", data);
+    console.log("Context : ", context);
+    const { images, companies } = data;
     return (
       <section
         id=""
@@ -30,7 +33,7 @@ class Companies extends React.Component {
           <p className=" pt0 mt0 f6 fw5 black-40 sans-serif ">Your Companies</p>
         </div>
 
-        <List data={companies} />
+        <List items={companies} context={context} self={self} />
 
         <div className=" w-100 flex flex-column ph5 left pt3 flex-auto w-100 pb5 mt4 pt3 bt b--black-05">
           <button
@@ -50,16 +53,25 @@ class Companies extends React.Component {
 export default Companies;
 // Companies.contextType = app;
 
-const List = ({ data }) => (
+const List = ({ items, context, self }) => (
   <>
     <section
       id="List-01"
       className=" flex flex-row-ns flex-column col-3-ns col-3 mw8 left ph5 "
     >
-      {data.length > 0 ? (
-        data.map((item, index) => (
+      {items && items.length > 0 ? (
+        items.map((item, index) => (
           <>
-            <section id="" className="col flex flex-column w-100 ">
+            <section
+              onClick={item => {
+                console.log("Context : ", context);
+                console.log("Self : ", self);
+                self.setState({ nudge: !self.state.nudge });
+                // context.Ui.self.setState({ nudge: true });
+              }}
+              id=""
+              className="col flex flex-column w-100 "
+            >
               <Image type={"banner"} size={"small"} url={item.image} />
 
               <div className=" sans-serif flex flex-column f5 fw6 black mt3">

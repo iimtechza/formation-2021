@@ -15,7 +15,8 @@ class Audio extends React.Component {
     return (
       <App.Provider
         value={{
-          state: this.state
+          state: this.state,
+          Audio: this
         }}
       >
         {this.props.children}
