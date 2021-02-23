@@ -1,6 +1,4 @@
 import React from "react";
-import "../style.css";
-import "../tachyons.css";
 
 // import Companies from './Companies.js'
 // import New_Company from './new_company.js'
@@ -21,7 +19,7 @@ class New_Company extends React.Component {
           <h1 className=" f6 ttu tracked fw7 black sans-serif pt5 pb0 ">
             Type
           </h1>
-          <p className=" pt0 mt3 f5 fw5 black sans-serif ">
+          <p className=" pt0 mt2 f5 fw5 black sans-serif ">
             Is your concern a company or foundation?
           </p>
         </div>

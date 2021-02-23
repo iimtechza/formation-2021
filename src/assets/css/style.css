@@ -1,0 +1,67 @@
+@import url("./color.css");
+h1,
+p {
+  font-family: Lato;
+}
+.bg-cover {
+  background-size: cover !important;
+}
+.bg-center {
+  background-position: center !important;
+}
+.right {
+  right: 0;
+}
+.left {
+  left: 0;
+}
+
+@media screen and max-width(768px) {
+  .col-3 > .col {
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
+    width: calc(100% / 3);
+  }
+  .col-2 > .col {
+    flex-basis: calc(100% / 2);
+    max-width: calc(100% / 2);
+    width: calc(100% / 2);
+  }
+  .col-1 > .col {
+    flex-basis: calc(100% / 1);
+    max-width: calc(100% / 1);
+    width: calc(100% / 1);
+  }
+}
+@media screen and min-width(768px) {
+  .col-3-ns > .col {
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
+    width: calc(100% / 3);
+  }
+  .col-3 > .col {
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
+    width: calc(100% / 3);
+  }
+  .col-2-ns > .col {
+    flex-basis: calc(100% / 2);
+    max-width: calc(100% / 2);
+    width: calc(100% / 2);
+  }
+  .col-2 > .col {
+    flex-basis: calc(100% / 2);
+    max-width: calc(100% / 2);
+    width: calc(100% / 2);
+  }
+  .col-1-ns > .col {
+    flex-basis: calc(100% / 1);
+    max-width: calc(100% / 1);
+    width: calc(100% / 1);
+  }
+  .col-1 > .col {
+    flex-basis: calc(100% / 1);
+    max-width: calc(100% / 1);
+    width: calc(100% / 1);
+  }
+}
