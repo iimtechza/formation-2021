@@ -7,7 +7,8 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "tachyons": "^4.12.0",
-    "APEQ_Forms": "file: ./src/modules/Forms"
+    "apeq-forms": "file:./src/modules/Forms/index.js",
+    "apeq-ui": "file:./src/modules/Ui/index.js"
   },
   "scripts": {
     "start": "react-scripts start",

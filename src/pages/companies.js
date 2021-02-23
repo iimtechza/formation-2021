@@ -1,6 +1,6 @@
 import React from "react";
 
-import Companies_ from "../data/companies.json";
+import { images, companies } from "../data";
 
 import Image from "../modules/Ui/Image/image";
 // import Companies from './Companies.js'
@@ -30,7 +30,7 @@ class Companies extends React.Component {
           <p className=" pt0 mt0 f6 fw5 black-40 sans-serif ">Your Companies</p>
         </div>
 
-        <List data={Companies_} />
+        <List data={companies} />
 
         <div className=" w-100 flex flex-column ph5 left pt3 flex-auto w-100 pb5 mt4 pt3 bt b--black-05">
           <button
